@@ -77,6 +77,15 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
+  const parseUTCDate = (dateStr: string) => {
+    if (!dateStr) return new Date();
+    if (dateStr.includes('Z') || (dateStr.includes('-') && dateStr.includes('T'))) {
+      return new Date(dateStr);
+    }
+    const formatted = dateStr.replace(' ', 'T') + 'Z';
+    return new Date(formatted);
+  };
+
   const toggleIncidentDetails = (id: number) => {
     setExpandedIncident(expandedIncident === id ? null : id);
   };
@@ -305,7 +314,7 @@ export default function App() {
                             <div>
                               <p className="text-[10px] text-slate-500 uppercase font-black tracking-wider">Horário de Início</p>
                               <p className="text-sm font-semibold text-slate-800">
-                                {new Date(incident.created_at).toLocaleString('pt-BR')}
+                                {parseUTCDate(incident.created_at).toLocaleString('pt-BR')}
                               </p>
                             </div>
                           </div>
@@ -320,7 +329,7 @@ export default function App() {
                         </div>
 
                         <div className="p-3 bg-white rounded-xl border border-slate-200/80 flex items-center justify-between text-xs text-slate-500 shadow-sm">
-                          <span>Última atualização: {new Date(incident.updated_at).toLocaleString('pt-BR')}</span>
+                          <span>Última atualização: {parseUTCDate(incident.updated_at).toLocaleString('pt-BR')}</span>
                         </div>
                       </div>
                     )}
@@ -410,7 +419,7 @@ export default function App() {
                       <h4 className="font-bold text-slate-800 truncate">{hist.title}</h4>
                     </div>
                     <p className="text-xs text-slate-650 pl-4">
-                      Regiões: {hist.affected_regions} • Resolvido em: {hist.resolved_at ? new Date(hist.resolved_at).toLocaleString('pt-BR') : ''}
+                      Regiões: {hist.affected_regions} • Resolvido em: {hist.resolved_at ? parseUTCDate(hist.resolved_at).toLocaleString('pt-BR') : ''}
                     </p>
                   </div>
 
