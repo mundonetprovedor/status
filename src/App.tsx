@@ -211,8 +211,8 @@ export default function App() {
       <header className="border-b border-white/5 bg-[#0b121f]/40 backdrop-blur-md sticky top-0 z-40 transition-all">
         <div className="max-w-5xl mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 border border-cyan-500/20 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-              <CheckCircle2 className="w-6 h-6" />
+            <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] overflow-hidden">
+              <img src="/favicon.png" alt="Logo" className="w-8 h-8 object-contain" />
             </div>
             <div>
               <h1 className="text-lg font-black tracking-tight text-white uppercase">MundoNet</h1>
@@ -246,11 +246,14 @@ export default function App() {
         )}
 
         {/* 1. Resumo da Saúde */}
-        <section className={`p-8 rounded-3xl border backdrop-blur-xl ${currentStatus.bg} ${currentStatus.shadow} transition-all duration-500 flex flex-col md:flex-row items-center gap-6 text-center md:text-left`}>
+        <section className={`p-8 rounded-3xl border backdrop-blur-xl ${currentStatus.bg} ${currentStatus.shadow} transition-all duration-500 flex flex-col md:flex-row items-center gap-6 text-center md:text-left relative overflow-hidden`}>
           <div className="shrink-0">{currentStatus.icon}</div>
-          <div className="flex-1 flex flex-col gap-2">
+          <div className="flex-1 flex flex-col gap-2 z-10">
             <h2 className="text-2xl font-black text-white">{currentStatus.title}</h2>
             <p className="text-slate-300 text-sm leading-relaxed max-w-xl font-medium">{currentStatus.description}</p>
+          </div>
+          <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 bg-white/5 rounded-2xl p-2 border border-white/10 z-10 shadow-lg flex items-center justify-center backdrop-blur-md">
+            <img src="/mascot.png" alt="Mascote MundoNet" className="w-full h-full object-contain" />
           </div>
         </section>
 
