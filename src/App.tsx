@@ -51,7 +51,6 @@ interface StatusData {
 
 export default function App() {
   const [data, setData] = useState<StatusData | null>(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [expandedIncident, setExpandedIncident] = useState<number | null>(null);
@@ -66,7 +65,6 @@ export default function App() {
       console.error('Erro ao carregar o status da rede:', err);
       setError('Não foi possível atualizar o status da rede neste momento. Tentaremos novamente.');
     } finally {
-      setLoading(false);
       setIsRefreshing(false);
     }
   };
