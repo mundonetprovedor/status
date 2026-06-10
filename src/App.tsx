@@ -285,8 +285,12 @@ export default function App() {
                     >
                       <div className="flex flex-col gap-2 flex-1 min-w-0 pr-4">
                         <div className="flex items-center gap-2 flex-wrap">
-                          {getClassificationBadge(incident.classification)}
-                          {getStatusBadge(incident.status)}
+                          <span className={getClassificationBadge(incident.classification)}>
+                            {incident.classification}
+                          </span>
+                          <span className={getStatusBadge(incident.status)}>
+                            {incident.status}
+                          </span>
                         </div>
                         <h4 className="text-base font-bold text-slate-900 truncate">{incident.title}</h4>
                       </div>
@@ -367,7 +371,9 @@ export default function App() {
                 >
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <h4 className="text-base font-bold text-slate-900">{m.title}</h4>
-                    {getMaintenanceBadge(m.status)}
+                    <span className={getMaintenanceBadge(m.status)}>
+                      {m.status}
+                    </span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-slate-100 pt-4">
