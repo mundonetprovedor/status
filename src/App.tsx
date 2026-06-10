@@ -269,7 +269,7 @@ export default function App() {
             </div>
           ) : (
             <div className="flex flex-col gap-4">
-              {data?.activeIncidents.map((incident) => {
+              {data?.activeIncidents.map((incident: any) => {
                 const isExpanded = expandedIncident === incident.id;
                 return (
                   <div 
@@ -357,7 +357,7 @@ export default function App() {
             </div>
           ) : (
             <div className="flex flex-col gap-4">
-              {data?.activeMaintenances.map((m) => (
+              {data?.activeMaintenances.map((m: any) => (
                 <div 
                   key={m.id} 
                   className="border border-white/5 bg-[#0b121f]/40 p-5 rounded-2xl flex flex-col gap-4 hover:border-white/10 transition-all shadow-md"
@@ -408,7 +408,7 @@ export default function App() {
             </div>
           ) : (
             <div className="flex flex-col gap-3">
-              {data?.history.map((hist) => (
+              {data?.history.map((hist: any) => (
                 <div 
                   key={hist.id} 
                   className="p-4 border border-white/5 bg-[#0b121f]/20 rounded-xl flex items-center justify-between flex-wrap gap-4 text-sm"
